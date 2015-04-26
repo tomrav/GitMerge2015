@@ -203,22 +203,32 @@ which contains extra data, including the message, and the commit it points to.
 
 ## Notes
 
-* You can easily review the tree of the last commit with `git cat-file -p master^{tree}`.
-* You can find the type of any object with `git cat-file -t SHA`
+* There are 4 types of objects: commit, tree, blob, tag.
+ * A commit object contains a parent (commit), an author, a committer, a message, and a tree.
+ * A tree object contains blobs and trees
+ * A blob object contains text data.
+ * A tag object contains a name, a commit, and a tagger.
+* There are 3 types of file pointers:
+ * A branch file points to a commit, and is located in `.git/refs/heads/`*
+ * A tag file points to a tag object or to a commit, and is located in `.git/refs/tags/`
+ * The HEAD file points to a branch or to a commit, and is located at `.git/HEAD`
+* A commit represents a snapshot, not a change. `git show` does not show the commit, but the difference of the commit to its parent.
 * `master` is just a name for the default branch.
 * Any action that can be done on a commit, can be done on HEAD, a tag, or a branch, as all those are eventually pointers to commits.
-* There are 4 types of objects: commit, tree, blob, tag.
-* Branches and tags are pointers to commits.
-* HEAD is a pointer to a branch or to a commit.
+* You can easily review the tree of the last commit with `git cat-file -p master^{tree}`.
+* You can find the type of any object with `git cat-file -t SHA`
+
+*Remotes not discussed here
 
 ## Questions
 
 * Why does `find .git/objects -type f` returns very few results in my very big repo? What are pack files?
 * What happens to existing commits, trees and blobs upon the creation of new commits?
+* What is modified when we commit?
+* what objects are created when a file renaming is committed?
 * What's the difference between `author` and `committer`?
 * What does `git checkout HEAD` do?
-* What changes when we commit? What's added?
-* How can a branch change besides committing while it's checked out?
+* How can a branch be changed besides by committing while it's checked out?
 * How are SHA values calculated for the different types of objects?
 
 

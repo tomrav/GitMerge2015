@@ -320,20 +320,26 @@ we could `git pull` to get the remote changes.
 
 
 
+## Epilog
 
+### Terms we've covered
 
+* init
+* add
+* commit
+* status
+* log
+* branch
+* checkout (of a branch)
+* cat-file
+* pull
+* push
+* branch
+* HEAD
+* remote
+* ...
 
-
-
-
-
-
-
-
-///////////////////////////////////////////////
-
-
-## Notes
+### Notes
 
 * There are 4 types of objects: commit, tree, blob and tag (which we haven't covered here).
  * A commit object contains a parent (commit), an author, a committer, a message, and a tree.
@@ -352,7 +358,7 @@ we could `git pull` to get the remote changes.
 \*Remotes not discussed here
 
 
-## Questions
+### Questions
 
 * What happens to existing commits, trees and blobs upon the creation of new commits?
 * What is modified when we commit?
@@ -361,12 +367,15 @@ we could `git pull` to get the remote changes.
 * How can a branch be changed besides by committing while it's checked out?
 * How are SHA values calculated for the different types of objects?
 
+### More terms to cover
+
+* blame
+* tag
+* merge & merge conflict
+* rebase
+* revert
+* checkout (of files)
+
 
 
 <!-- -->
-
-## TODO & metadata
-* commands covered: init, add, commit, status, log, branch, checkout (of branches), cat-file, pull, push
-* terms covered: branch, HEAD, commit, remote
-* commands not covered: merge, rebase, checkout (of files), revert...
-* terms not covered: tag, conflict...

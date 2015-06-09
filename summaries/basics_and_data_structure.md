@@ -146,15 +146,22 @@ This is not a result of the fact that we already had such a blob in the repo - g
 
 ### When do we want to commit?
 
-TODO ???
+So far, we've created small commits as examples, but in a real repository,
+and especially when working with other people, we'd want to create commits which will be:
+* Well defined - The commit message should clearly state what was the point of the commit.
+* Atomic - The commit should do one thing - refactoring, development, bug fixes, file renaming - should be separated to different commits,
+so that each commit could be easily read and understood, and if needed, easily reverted.
 
-### What is a branch?
+
+## Branches (and HEAD)
 
 So we've seen that during our work, we've created a chain of commits,
 but what happens if we want to test something outside of the formal progress of our project, and how can we use it if the test was successful?
 (If we'll go back to the old 'save' model, what if we want to handle two versions of the project, and maybe join them later on?)
 
 That's why we have branches.
+
+### What is a branch?
 
 Without noticing, we were already working on one branch - which is by default, named `master`.
 We can see this by running `git branch`:
@@ -264,13 +271,64 @@ To summaries:
 * A branch is a pointer to a commit, and it changes when it's the current branch (HEAD points to it) and we add a new commit.
 
 
-## Push and Pull
+## Syncing our repository
 
-TODO ???
+So far, we've only worked locally. Unlike with some other version control systems,
+we were able to commit code without using our network connection.
+This is possible because in git, each user has the whole repository,
+including all history and all branches.
 
-## Remotes
+Now, let us share our code.
 
-TODO ???
+### Remotes
+
+Each repository has "remotes", which are the remote places with which the local repo can sync.
+Since we've created a new repo locally, (and not "cloned" it from a remote), it doesn't have any yet.
+We can see that with:
+```bash
+git remote -v
+```
+No remotes!
+
+Since this is a new repository, we're want to sync it up to an empty repo.
+We can create an empty repo in Github.
+After we'll do that, Github will tell us that we can add a new remote with:
+```bash
+git remote add origin git@github.com:username/reponame.git
+```
+What we've done here is to tell git to add a new remote, called 'origin', which points to that git url.
+We could now see that `git remote -v` tells us that this remote is set up.
+
+### Push and Pull
+
+Now that we have an empty remote waiting for us, we can do out first push there.
+We'll push master to the remote, but on the first time, we'll have to tell git where exactly in the remote we want to push it.
+We should make sure that we're on master with:
+```bash
+git checkout master
+```
+and push it with:
+```bash
+git push --set-upstream origin master
+```
+This is telling git to associate our current branch, with the remote branch on origin called master, and push it.
+This is done so that on the next time we'll want to push, we could just `git push`, and git would know where we want to push master to.
+
+Once we've done that, and once there are remote changes,
+(which were done by someone else, or by us from a different computer),
+we could `git pull` to get the remote changes.
+
+
+
+
+
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////
 

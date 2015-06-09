@@ -349,7 +349,8 @@ we could `git pull` to get the remote changes.
 * Any action that can be done on a commit, can be done on HEAD, a tag, or a branch, as all those are eventually pointers to commits.
 * You can find the type of any object with `git cat-file -t SHA`
 
-*Remotes not discussed here
+\*Remotes not discussed here
+
 
 ## Questions
 
@@ -365,7 +366,7 @@ we could `git pull` to get the remote changes.
 <!-- -->
 
 ## TODO & metadata
-* commands covered: init, add, commit, status, log, branch, checkout (of branches), cat-file
-* terms covered: branch, HEAD, commit,
-* commands not covered: pull, push, merge, rebase, checkout (of files), revert...
-* terms not covered: tag, remote, conflict...
+* commands covered: init, add, commit, status, log, branch, checkout (of branches), cat-file, pull, push
+* terms covered: branch, HEAD, commit, remote
+* commands not covered: merge, rebase, checkout (of files), revert...
+* terms not covered: tag, conflict...

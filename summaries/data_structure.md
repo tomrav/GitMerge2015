@@ -72,7 +72,7 @@ git cat-file -p f82a6a
 ```
 
 The tree representing `a` has two objects - two blobs, for `y` and for `z`.
-Notice that the blob representing `z` is the same one representing `x`!
+Notice that the blob representing `y` is the same one representing `x`!
 This is not a result of the fact that we already had such a blob in the repo - go into any repo and commit a file with the content 'hello', and you'll get a blob with the SHA starting with `ce0136`. Verify it by running `git cat-file -p ce0136`
 
 
